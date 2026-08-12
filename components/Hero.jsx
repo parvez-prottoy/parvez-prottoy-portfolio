@@ -248,7 +248,7 @@ export default function Hero() {
 
           <motion.h1
             variants={fadeUpVariants}
-            className="text-4xl sm:text-5xl md:text-6xl xl:text-[4.5rem] font-sans font-bold tracking-tight leading-[1.05] text-white"
+            className="text-[32px] sm:text-5xl md:text-6xl xl:text-[4.5rem] font-sans font-bold tracking-tight leading-[1.05] text-white"
           >
             <ShinyText
               text="Hello, I&rsquo;m Parvez"
