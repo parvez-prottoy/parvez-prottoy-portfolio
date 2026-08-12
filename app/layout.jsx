@@ -1,6 +1,6 @@
 import Navbar from '@/components/Navbar';
+import { Inter, Oswald } from 'next/font/google';
 import './globals.css';
-import { Inter, Manrope } from 'next/font/google';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -8,9 +8,9 @@ const inter = Inter({
   display: 'swap',
 });
 
-const manrope = Manrope({
+const oswald = Oswald({
   subsets: ['latin'],
-  variable: '--font-manrope',
+  variable: '--font-oswald',
   display: 'swap',
 });
 
@@ -21,8 +21,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`h-full antialiased ${inter.variable} ${manrope.variable}`}>
-      <body className="min-h-full flex flex-col font-sans">
+    <html
+      lang="en"
+      className={`h-full antialiased ${inter.variable}`}
+    >
+      <body>
         <Navbar />
         {children}
       </body>

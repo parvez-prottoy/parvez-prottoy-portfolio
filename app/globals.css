@@ -1,54 +1,38 @@
 @import 'tailwindcss';
 
 :root {
-  --background: #06080f;
-  --foreground: #f2f5ff;
+  --background: #050403;
+  --foreground: #ffffff;
 
-  --card: #0d111c;
-  --card-foreground: #f2f5ff;
+  --card: #0a0807;
+  --card-foreground: #ffffff;
 
-  --popover: #111624;
-  --popover-foreground: #f2f5ff;
+  --popover: #0a0807;
+  --popover-foreground: #ffffff;
 
-  /* Main Electric Aurora Accent */
-  --primary: #8b5cf6;
+  --primary: #ea580c;
   --primary-foreground: #ffffff;
 
-  --secondary: #151b2b;
-  --secondary-foreground: #e8ecf8;
+  --secondary: #17120e;
+  --secondary-foreground: #f0e6df;
 
-  --muted: #121827;
-  --muted-foreground: #8e99b2;
+  --muted: #17120e;
+  --muted-foreground: rgba(255, 255, 255, 0.5);
 
-  /* Deep Aurora Accent */
-  --accent: #102c2e;
-  --accent-foreground: #bffcf4;
+  --accent: #c2410c;
+  --accent-foreground: #ffffff;
 
-  --destructive: #ff5c6c;
+  --destructive: #ef4444;
 
-  --border: #242c3d;
-  --input: #1a2233;
-  --ring: #22d3c5;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: #17120e;
+  --ring: #ea580c;
 
-  /* Data Visualization */
-  --chart-1: #8b5cf6;
-  --chart-2: #22d3c5;
-  --chart-3: #3b82f6;
-  --chart-4: #d946ef;
-  --chart-5: #f59e0b;
-
-  /* Sidebar */
-  --sidebar: #090d16;
-  --sidebar-foreground: #f2f5ff;
-
-  --sidebar-primary: #8b5cf6;
-  --sidebar-primary-foreground: #ffffff;
-
-  --sidebar-accent: #151b2b;
-  --sidebar-accent-foreground: #e8ecf8;
-
-  --sidebar-border: #242c3d;
-  --sidebar-ring: #22d3c5;
+  --chart-1: #ea580c;
+  --chart-2: #c2410c;
+  --chart-3: #9a3412;
+  --chart-4: #f97316;
+  --chart-5: #fb923c;
 }
 
 @theme inline {
@@ -71,15 +55,6 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -95,7 +70,7 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-heading: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -121,4 +96,34 @@
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+.shiny-text {
+  color: #b5b5b5a4;
+  /* Adjust this color to change intensity/style */
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  display: inline-block;
+  animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 100%;
+  }
+
+  100% {
+    background-position: -100%;
+  }
+}
+
+.shiny-text.disabled {
+  animation: none;
 }

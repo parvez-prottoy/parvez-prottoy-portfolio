@@ -11,7 +11,6 @@ const options = [
   { path: '/about', label: 'About' },
   { path: '/resume', label: 'Resume' },
   { path: '/blog', label: 'Blog' },
-  { path: '/more', label: 'More' },
 ];
 
 export default function Navbar() {
@@ -23,14 +22,27 @@ export default function Navbar() {
   };
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center mt-6">
-      <nav className="w-full flex items-center justify-center px-4">
-        {/* Desktop Menu */}
-        <motion.ul
+    <div className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center">
+      <nav className="w-full max-w-7xl mx-auto flex items-center justify-between px-6 py-6 md:px-12 lg:px-16 md:py-8">
+        
+        {/* Logo (Left) */}
+        <motion.div 
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="relative z-50"
+        >
+          <Link href="/" className="text-2xl font-heading font-bold text-white tracking-tight">
+            Parvez<span className="text-primary">.</span>
+          </Link>
+        </motion.div>
+
+        {/* Desktop Menu (Center) */}
+        <motion.ul 
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="hidden md:flex items-center justify-center space-x-1 px-1.5 py-1.5 rounded-full border border-white/5 bg-background/50 shadow-lg backdrop-blur-xl supports-backdrop-filter:bg-background/30"
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+          className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center justify-center space-x-8"
         >
           {options.map((option) => {
             const isActive = pathname === option.path;
@@ -38,40 +50,40 @@ export default function Navbar() {
               <li key={option.path} className="relative">
                 <Link
                   href={option.path}
-                  className={`relative z-10 px-5 py-2 text-sm font-medium tracking-wide transition-colors duration-300 rounded-full block ${
+                  className={`relative z-10 text-sm font-sans font-medium transition-colors duration-300 ${
                     isActive
                       ? 'text-white'
-                      : 'text-muted-foreground hover:text-white/90'
+                      : 'text-white/50 hover:text-white'
                   }`}
                 >
                   {option.label}
                 </Link>
-                {isActive && (
-                  <motion.div
-                    layoutId="desktopActiveIndicator"
-                    className="absolute inset-0 z-0 rounded-full bg-white/5"
-                    transition={{
-                      type: 'spring',
-                      stiffness: 300,
-                      damping: 30,
-                    }}
-                  >
-                    <div className="absolute -bottom-px left-1/2 h-px w-1/2 -translate-x-1/2 bg-primary shadow-[0_0_8px_rgba(139,92,246,0.6)]" />
-                  </motion.div>
-                )}
               </li>
             );
           })}
         </motion.ul>
 
+        {/* CTA Button (Right) */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+          className="hidden md:block relative z-50"
+        >
+          <Link 
+            href="/contact" 
+            className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-white text-[#050403] text-sm font-medium font-sans hover:bg-white/90 transition-colors duration-300"
+          >
+            Get In Touch
+          </Link>
+        </motion.div>
+
         {/* Mobile Menu Button */}
         <motion.button
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="md:hidden fixed right-5 top-5 z-50 p-3 rounded-full border border-white/5 bg-background/50 backdrop-blur-xl shadow-lg supports-backdrop-filter:bg-background/30 focus:outline-none"
+          className="md:hidden relative z-50 p-2 text-white focus:outline-none"
           onClick={toggleMenu}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
         >
           <AnimatePresence mode="wait">
             {isOpen ? (
@@ -82,7 +94,7 @@ export default function Navbar() {
                 exit={{ rotate: 90, opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <FaTimes className="text-white text-lg" />
+                <FaTimes className="text-xl" />
               </motion.div>
             ) : (
               <motion.div
@@ -92,34 +104,30 @@ export default function Navbar() {
                 exit={{ rotate: -90, opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <FaBars className="text-white text-lg" />
+                <FaBars className="text-xl" />
               </motion.div>
             )}
           </AnimatePresence>
         </motion.button>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Fullscreen Overlay */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              className="md:hidden fixed inset-0 z-40 bg-background/95 backdrop-blur-2xl supports-backdrop-filter:bg-background/80"
-              initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
-              animate={{ opacity: 1, backdropFilter: 'blur(16px)' }}
-              exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+              className="md:hidden fixed inset-0 z-40 bg-black"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             >
               <motion.ul
-                className="flex flex-col items-center justify-center h-full space-y-4"
+                className="flex flex-col items-center justify-center h-full space-y-6"
                 initial="closed"
                 animate="open"
                 exit="closed"
                 variants={{
-                  open: {
-                    transition: { staggerChildren: 0.05, delayChildren: 0.1 },
-                  },
-                  closed: {
-                    transition: { staggerChildren: 0.05, staggerDirection: -1 },
-                  },
+                  open: { transition: { staggerChildren: 0.05, delayChildren: 0.1 } },
+                  closed: { transition: { staggerChildren: 0.05, staggerDirection: -1 } }
                 }}
               >
                 {options.map((option) => {
@@ -129,7 +137,7 @@ export default function Navbar() {
                       key={option.path}
                       variants={{
                         open: { y: 0, opacity: 1 },
-                        closed: { y: 20, opacity: 0 },
+                        closed: { y: 20, opacity: 0 }
                       }}
                       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                       className="relative overflow-hidden"
@@ -137,30 +145,32 @@ export default function Navbar() {
                       <Link
                         href={option.path}
                         onClick={() => setIsOpen(false)}
-                        className={`relative z-10 block px-8 py-3 text-2xl font-heading tracking-wide transition-all duration-300 rounded-full ${
+                        className={`relative z-10 block px-8 py-2 text-3xl font-heading tracking-wide transition-colors duration-300 ${
                           isActive
                             ? 'text-white'
-                            : 'text-muted-foreground hover:text-white/90'
+                            : 'text-white/40 hover:text-white'
                         }`}
                       >
                         {option.label}
                       </Link>
-                      {isActive && (
-                        <motion.div
-                          className="absolute inset-0 z-0 bg-white/5 rounded-full"
-                          layoutId="mobileActiveBackground"
-                          transition={{
-                            type: 'spring',
-                            stiffness: 250,
-                            damping: 25,
-                          }}
-                        >
-                          <div className="absolute bottom-px left-1/2 h-px w-1/3 -translate-x-1/2 bg-primary shadow-[0_0_8px_rgba(139,92,246,0.6)]" />
-                        </motion.div>
-                      )}
                     </motion.li>
                   );
                 })}
+                <motion.li
+                  variants={{
+                    open: { y: 0, opacity: 1 },
+                    closed: { y: 20, opacity: 0 }
+                  }}
+                  className="pt-8"
+                >
+                  <Link 
+                    href="/contact"
+                    onClick={() => setIsOpen(false)}
+                    className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-white text-black text-lg font-medium font-sans"
+                  >
+                    Get in touch
+                  </Link>
+                </motion.li>
               </motion.ul>
             </motion.div>
           )}
