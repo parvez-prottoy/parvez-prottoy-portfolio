@@ -40,7 +40,7 @@ export default function Experience() {
     >
       {/* Background ambient lighting */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div className="absolute left-1/2 top-1/4 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/5 blur-[120px]" />
+        <div className="absolute left-1/2 top-1/4 h-125 w-125 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/5 blur-[120px]" />
         <div className="absolute right-0 top-1/3 h-96 w-96 rounded-full bg-[#ea580c]/5 blur-[120px]" />
         <div className="absolute bottom-10 left-10 h-72 w-72 rounded-full bg-white/5 blur-[100px]" />
       </div>
@@ -49,7 +49,7 @@ export default function Experience() {
 
       <div className="relative mx-auto mt-8 max-w-4xl">
         {/* Timeline vertical connector line */}
-        <div className="absolute left-5 top-10 hidden h-[calc(100%-5rem)] w-px bg-gradient-to-b from-[#ea580c]/60 via-white/10 to-transparent md:block" />
+        <div className="absolute left-5 top-10 hidden h-[calc(100%-5rem)] w-px bg-linear-to-b from-[#ea580c]/60 via-white/10 to-transparent md:block" />
 
         <div className="space-y-10 md:space-y-14">
           {experiences.map((experience, index) => (
@@ -91,7 +91,7 @@ export default function Experience() {
               <div className="group relative overflow-hidden rounded-[2rem] border border-white/5 bg-[#0a0a0a] p-6 shadow-2xl transition-all duration-400 ease-out hover:-translate-y-2 hover:border-[#ea580c]/30 hover:bg-[#111] md:p-10">
                 {/* Subtle Hover Glows */}
                 <div className="absolute right-0 top-0 h-48 w-48 rounded-full bg-[#ea580c]/0 blur-3xl transition-colors duration-500 group-hover:bg-[#ea580c]/10" />
-                
+
                 <div className="relative flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
                   <div className="space-y-4">
                     {/* Role Type Badge */}
@@ -130,10 +130,10 @@ export default function Experience() {
                       key={highlight}
                       className="flex items-start gap-4 text-sm leading-relaxed text-white/60 md:text-base"
                     >
-                      <svg 
-                        width="12" 
-                        height="12" 
-                        viewBox="0 0 24 24" 
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
                         fill="currentColor"
                         className="mt-1.5 shrink-0 text-[#ea580c]/80"
                       >
