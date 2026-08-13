@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const TextType = ({
   text,
@@ -16,7 +16,7 @@ const TextType = ({
   variableSpeedMax = 120,
 }) => {
   // Use `texts` if provided, otherwise `text`
-  const stringsToType = texts && texts.length > 0 ? texts : (text || []);
+  const stringsToType = texts && texts.length > 0 ? texts : text;
 
   const [currentStringIndex, setCurrentStringIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
@@ -26,12 +26,16 @@ const TextType = ({
     if (!stringsToType || stringsToType.length === 0) return;
 
     let timeout;
-    
+
     const fullText = stringsToType[currentStringIndex];
 
     const getTypingSpeed = () => {
       if (variableSpeedEnabled) {
-        return Math.floor(Math.random() * (variableSpeedMax - variableSpeedMin + 1)) + variableSpeedMin;
+        return (
+          Math.floor(
+            Math.random() * (variableSpeedMax - variableSpeedMin + 1)
+          ) + variableSpeedMin
+        );
       }
       return typingSpeed;
     };
@@ -59,25 +63,42 @@ const TextType = ({
     }
 
     return () => clearTimeout(timeout);
-  }, [currentText, isDeleting, currentStringIndex, stringsToType, typingSpeed, deletingSpeed, pauseDuration, variableSpeedEnabled, variableSpeedMin, variableSpeedMax]);
+  }, [
+    currentText,
+    isDeleting,
+    currentStringIndex,
+    stringsToType,
+    typingSpeed,
+    deletingSpeed,
+    pauseDuration,
+    variableSpeedEnabled,
+    variableSpeedMin,
+    variableSpeedMax,
+  ]);
 
   return (
     <span className="relative">
       <span className="text-white/90">{currentText}</span>
       {showCursor && (
-        <span 
+        <span
           className="text-[#ea580c] font-bold"
-          style={{ animation: `blink ${cursorBlinkDuration}s step-end infinite` }}
+          style={{
+            animation: `blink ${cursorBlinkDuration}s step-end infinite`,
+          }}
         >
           {cursorCharacter}
         </span>
       )}
-      <style dangerouslySetInnerHTML={{__html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         @keyframes blink {
           0%, 100% { opacity: 1; }
           50% { opacity: 0; }
         }
-      `}} />
+      `,
+        }}
+      />
     </span>
   );
 };
