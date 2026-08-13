@@ -1,27 +1,38 @@
 'use client';
 
-import { FiGithub, FiLinkedin, FiFacebook, FiMail } from 'react-icons/fi';
+import { FiFacebook, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
     { name: 'GitHub', icon: FiGithub, href: 'https://github.com/naimur-reza' },
-    { name: 'LinkedIn', icon: FiLinkedin, href: 'https://www.linkedin.com/in/naimur-reza' },
-    { name: 'Email', icon: FiMail, href: 'mailto:parvezahmedprottoy.web@gmail.com' },
-    { name: 'Facebook', icon: FiFacebook, href: 'https://www.facebook.com/iamrezadadu/' },
+    {
+      name: 'LinkedIn',
+      icon: FiLinkedin,
+      href: 'https://www.linkedin.com/in/naimur-reza',
+    },
+    {
+      name: 'Email',
+      icon: FiMail,
+      href: 'mailto:parvezahmedprottoy.web@gmail.com',
+    },
+    {
+      name: 'Facebook',
+      icon: FiFacebook,
+      href: 'https://www.facebook.com/iamrezadadu/',
+    },
   ];
 
   return (
     <footer className="relative w-full bg-[#050403] border-t border-white/5 py-16 flex flex-col items-center justify-center overflow-hidden">
-      
       {/* Subtle Ambient Background Effects */}
       <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center">
         {/* Central orange ambient glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#ea580c]/5 rounded-full blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-75 bg-[#ea580c]/5 rounded-full blur-[120px]" />
         {/* Top/bottom edge highlights */}
-        <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-[#ea580c]/20 to-transparent" />
-        <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-[#ea580c]/[0.02] to-transparent" />
+        <div className="absolute top-0 w-full h-px bg-linear-to-r from-transparent via-[#ea580c]/20 to-transparent" />
+        <div className="absolute bottom-0 w-full h-32 bg-linear-to-t from-[#ea580c]/2 to-transparent" />
       </div>
 
       <div className="relative z-10 flex flex-col items-center justify-center w-full">
@@ -46,17 +57,16 @@ export default function Footer() {
 
         {/* Divider */}
         <div className="flex items-center gap-4 mb-8">
-          <div className="h-px w-24 sm:w-32 bg-gradient-to-r from-transparent to-white/10" />
+          <div className="h-px w-24 sm:w-32 bg-linear-to-r from-transparent to-white/10" />
           <div className="h-1.5 w-1.5 rounded-full bg-[#ea580c] shadow-[0_0_10px_rgba(234,88,12,0.8)]" />
-          <div className="h-px w-24 sm:w-32 bg-gradient-to-l from-transparent to-white/10" />
+          <div className="h-px w-24 sm:w-32 bg-linear-to-l from-transparent to-white/10" />
         </div>
 
         {/* Copyright */}
-        <p className="text-xs text-white/40 tracking-[0.05em] font-medium">
+        <p className="text-xs text-white/40 tracking-wider font-medium">
           &copy; {currentYear} Parvez Ahmed. All Rights Reserved.
         </p>
       </div>
-
     </footer>
   );
 }

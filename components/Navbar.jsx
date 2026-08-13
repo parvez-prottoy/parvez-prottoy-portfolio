@@ -1,5 +1,5 @@
 'use client';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
@@ -16,19 +16,44 @@ const options = [
 export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    const previous = scrollY.getPrevious();
+    
+    // Always show at the top of the page (e.g., < 50px)
+    if (latest <= 50) {
+      setIsHidden(false);
+      return;
+    }
+
+    // Scrolling down & diff > 5 to ignore tiny jiggle
+    if (latest > previous && latest - previous > 5) {
+      setIsHidden(true);
+    } 
+    // Scrolling up & diff > 5 to ignore tiny jiggle
+    else if (latest < previous && previous - latest > 5) {
+      setIsHidden(false);
+    }
+  });
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center">
-      <nav className="w-full max-w-7xl mx-auto flex items-center justify-between px-6 py-6 md:px-12 lg:px-16 md:py-8">
+    <div className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center pointer-events-none">
+      <nav className="w-full max-w-7xl mx-auto flex items-center justify-between px-6 py-6 md:px-12 lg:px-16 md:py-8 pointer-events-auto">
         {/* Logo (Left) */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          animate={{
+            opacity: isHidden ? 0 : 1,
+            x: isHidden ? -10 : 0,
+          }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
+          style={{ pointerEvents: isHidden ? 'none' : 'auto' }}
           className="relative z-50"
         >
           <Link
@@ -107,8 +132,12 @@ export default function Navbar() {
         {/* CTA Button (Right) */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+          animate={{
+            opacity: isHidden ? 0 : 1,
+            x: isHidden ? 10 : 0,
+          }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
+          style={{ pointerEvents: isHidden ? 'none' : 'auto' }}
           className="hidden md:block relative z-50"
         >
           <Link
