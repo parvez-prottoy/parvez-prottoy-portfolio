@@ -43,9 +43,13 @@ export default function Projects() {
     };
   }, [projectRefs]);
   return (
-    <section
+    <motion.section
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       id="work"
-      className="relative mx-auto mt-24 w-full max-w-7xl py-16 px-6 md:px-12 lg:px-16"
+      className="relative mx-auto w-full max-w-7xl py-24 px-6 md:px-12 lg:px-16"
     >
       <SectionTitle title="Projects" subtitle="FEATURED CASE STUDIES" />
 
@@ -106,6 +110,6 @@ export default function Projects() {
           </motion.div>
         </Link>
       </motion.div>
-    </section>
+    </motion.section>
   );
 }

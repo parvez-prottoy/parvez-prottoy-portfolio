@@ -68,9 +68,13 @@ export default function Skills() {
   };
 
   return (
-    <section
+    <motion.section
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       id="skills"
-      className="relative mx-auto mt-24 flex h-full w-full max-w-7xl flex-col py-16 px-6 md:px-12 lg:px-16"
+      className="relative mx-auto flex h-full w-full max-w-7xl flex-col py-24 px-6 md:px-12 lg:px-16"
       ref={sectionRef}
     >
       {/* Background elements */}
@@ -169,6 +173,6 @@ export default function Skills() {
           </motion.div>
         ))}
       </motion.div>
-    </section>
+    </motion.section>
   );
 }
