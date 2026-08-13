@@ -1,19 +1,24 @@
-import { projects } from '@/data/projects';
 import ProjectsGrid from '@/components/ProjectsGrid';
+import { projects } from '@/data/projects';
 import { FiArrowRight, FiBriefcase } from 'react-icons/fi';
+
+export const metadata = {
+  title: 'Work & Projects',
+  description:
+    'Explore the portfolio projects and professional work of Parvez Prottoy. Discover innovative frontend solutions and robust web applications.',
+  alternates: { canonical: '/work' },
+};
 
 export default function WorkPage() {
   return (
     <main className="relative min-h-screen overflow-hidden px-6 md:px-12 lg:px-16 pb-24 pt-32 text-gray-300">
-      
       {/* Premium Background Ambient Lighting */}
-      <div className="absolute left-1/2 top-20 -z-10 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[#ea580c]/5 blur-[120px] pointer-events-none" />
-      <div className="absolute right-0 top-64 -z-10 h-[400px] w-[400px] rounded-full bg-white/5 blur-[120px] pointer-events-none" />
+      <div className="absolute left-1/2 top-20 -z-10 h-125 w-125 -translate-x-1/2 rounded-full bg-[#ea580c]/5 blur-[120px] pointer-events-none" />
+      <div className="absolute right-0 top-64 -z-10 h-100 w-100 rounded-full bg-white/5 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-20 left-10 -z-10 h-72 w-72 rounded-full bg-[#ea580c]/5 blur-[120px] pointer-events-none" />
 
       <section className="mx-auto w-full max-w-7xl">
         <div className="mx-auto max-w-4xl text-center flex flex-col items-center">
-          
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#0a0a0a] px-4 py-1.5 text-xs font-semibold tracking-wider uppercase text-white/70">
             <FiBriefcase className="size-3.5 text-[#ea580c]" />
             Project Case Studies

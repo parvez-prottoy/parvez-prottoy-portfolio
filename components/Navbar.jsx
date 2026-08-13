@@ -1,5 +1,11 @@
 'use client';
-import { AnimatePresence, motion, useScroll, useMotionValueEvent } from 'framer-motion';
+import {
+  AnimatePresence,
+  motion,
+  useMotionValueEvent,
+  useScroll,
+} from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
@@ -21,7 +27,7 @@ export default function Navbar() {
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
     const previous = scrollY.getPrevious();
-    
+
     // Always show at the top of the page (e.g., < 50px)
     if (latest <= 50) {
       setIsHidden(false);
@@ -31,7 +37,7 @@ export default function Navbar() {
     // Scrolling down & diff > 5 to ignore tiny jiggle
     if (latest > previous && latest - previous > 5) {
       setIsHidden(true);
-    } 
+    }
     // Scrolling up & diff > 5 to ignore tiny jiggle
     else if (latest < previous && previous - latest > 5) {
       setIsHidden(false);
@@ -60,7 +66,7 @@ export default function Navbar() {
             href="/"
             className="text-2xl font-heading font-bold text-white tracking-tight"
           >
-            Parvez<span className="text-primary">.</span>
+            <Image src={'/logo.svg'} width={160} height={26} className="" />
           </Link>
         </motion.div>
 
@@ -154,6 +160,7 @@ export default function Navbar() {
           animate={{ opacity: 1, scale: 1 }}
           className="md:hidden relative z-50 p-2 text-white focus:outline-none"
           onClick={toggleMenu}
+          aria-label={isOpen ? "Close Menu" : "Open Menu"}
         >
           <AnimatePresence mode="wait">
             {isOpen ? (

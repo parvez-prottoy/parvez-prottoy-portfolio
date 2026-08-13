@@ -310,10 +310,18 @@ export default function Hero() {
 
       {/* Premium Scroll Indicator */}
       <motion.div
+        onClick={() => {
+          const aboutSection = document.getElementById('about');
+          if (aboutSection) {
+            aboutSection.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+          }
+        }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 lg:gap-3 z-20"
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 lg:gap-3 z-20 cursor-pointer hover:opacity-80 transition-opacity"
       >
         <span className="text-[8px] font-sans font-medium tracking-[0.3em] uppercase text-white/30 hidden lg:block">
           Scroll to explore

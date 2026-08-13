@@ -121,6 +121,8 @@ export default function Skills() {
             height={300}
             src="/gpt.jpg"
             draggable={false}
+            loading="lazy"
+            sizes="(max-width: 768px) 300px, 300px"
             alt="skills cover rotating image"
             className="z-10 w-full select-none"
           />

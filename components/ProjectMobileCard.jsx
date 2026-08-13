@@ -39,6 +39,7 @@ export default function ProjectMobileCard({ project }) {
           alt={project.title}
           src={project.image}
           fill
+          loading="lazy"
           className="object-cover object-top opacity-95 z-10"
           sizes="(max-width: 1024px) 100vw"
         />

@@ -67,6 +67,7 @@ export default function ProjectCard({ project, index, onHover, isActive }) {
                   width={1203}
                   height={753}
                   src={project.image}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 85vw, 50vw"
                   className="w-full h-auto object-cover opacity-90 transition-opacity duration-500 group-hover:opacity-100"
                 />
 
