@@ -13,7 +13,7 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 
 const options = [
   { path: '/', label: 'Home' },
-  { path: '/work', label: 'Work' },
+  { path: '/projects', label: 'Projects' },
   { path: '/about', label: 'About' },
   { path: '/resume', label: 'Resume' },
   { path: '/blog', label: 'Blog' },
@@ -66,7 +66,13 @@ export default function Navbar() {
             href="/"
             className="text-2xl font-heading font-bold text-white tracking-tight"
           >
-            <Image src={'/logo.svg'} width={160} height={26} className="" />
+            <Image
+              src={'/logo.svg'}
+              width={160}
+              height={26}
+              className=""
+              alt="Personal logo"
+            />
           </Link>
         </motion.div>
 
@@ -160,7 +166,7 @@ export default function Navbar() {
           animate={{ opacity: 1, scale: 1 }}
           className="md:hidden relative z-50 p-2 text-white focus:outline-none"
           onClick={toggleMenu}
-          aria-label={isOpen ? "Close Menu" : "Open Menu"}
+          aria-label={isOpen ? 'Close Menu' : 'Open Menu'}
         >
           <AnimatePresence mode="wait">
             {isOpen ? (

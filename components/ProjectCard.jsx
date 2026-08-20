@@ -13,16 +13,26 @@ export default function ProjectCard({ project, index, onHover, isActive }) {
           target="_blank"
           rel="noopener noreferrer"
           draggable={false}
-          className="group relative cursor-pointer overflow-hidden rounded-3xl border border-white/5 bg-[#050403] p-2 transition-all duration-500 hover:border-[#ea580c]/30 hover:bg-white/2 hidden lg:block"
-          href={project.website}
+          className="group relative cursor-pointer overflow-hidden rounded-3xl border border-white/5 bg-[#050403] p-2 transition-all duration-500 hover:bg-white/2 hidden lg:block"
+          href={project.live_link || project.website || '#'}
+          style={{ '--hover-border-color': project.shadowColor || '#ea580c' }}
         >
           {/* Subtle Accent Glow on Hover */}
-          <div className="absolute inset-0 bg-[#ea580c]/0 transition-colors duration-500 group-hover:bg-[#ea580c]/5 -z-10" />
+          <div 
+            className="absolute inset-0 transition-opacity duration-500 opacity-0 group-hover:opacity-20 -z-10" 
+            style={{ background: project.gradient || 'linear-gradient(to right, #ea580c, #fb923c)' }} 
+          />
 
           {/* Inner Card Container */}
-          <div className="relative flex w-full flex-col items-center justify-between overflow-hidden rounded-2xl bg-[#0a0a0a] border border-white/5 h-full transition-all duration-500">
+          <div 
+            className="relative flex w-full flex-col items-center justify-between overflow-hidden rounded-2xl bg-[#0a0a0a] border border-white/5 h-full transition-all duration-500"
+            style={{ borderColor: 'var(--hover-border-color)' }}
+          >
             {/* Soft Radial Glow behind the image */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(234,88,12,0.1),transparent_70%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none" />
+            <div 
+              className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none" 
+              style={{ background: `radial-gradient(circle at 50% 0%, ${project.shadowColor || '#ea580c'}1A, transparent 70%)` }}
+            />
 
             {/* Mobile Title Header */}
             <motion.div
@@ -35,7 +45,11 @@ export default function ProjectCard({ project, index, onHover, isActive }) {
               </h3>
 
               <motion.div
-                className="flex size-10 items-center justify-center rounded-full bg-white/5 border border-white/10 group-hover:border-[#ea580c]/30 group-hover:text-[#ea580c] transition-colors"
+                className="flex size-10 items-center justify-center rounded-full bg-white/5 border border-white/10 transition-colors"
+                style={{ 
+                   borderColor: 'var(--hover-border-color)', 
+                   color: 'var(--hover-border-color)' 
+                }}
                 initial={{ x: 0 }}
                 whileHover={{ x: 3 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 10 }}
@@ -60,16 +74,19 @@ export default function ProjectCard({ project, index, onHover, isActive }) {
 
             {/* Project Screenshot Container */}
             <div className="w-full flex justify-center p-4 md:p-8 md:pt-0 overflow-hidden relative">
-              <div className="relative w-full max-w-[90%] md:max-w-[85%] rounded-xl border border-white/10 shadow-2xl overflow-hidden transition-transform duration-700 ease-[0.16,1,0.3,1] group-hover:-translate-y-2">
-                <Image
-                  alt={project.title}
-                  loading="lazy"
-                  width={1203}
-                  height={753}
-                  src={project.image}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 85vw, 50vw"
-                  className="w-full h-auto object-cover opacity-90 transition-opacity duration-500 group-hover:opacity-100"
-                />
+              <div className="relative w-full max-w-[90%] md:max-w-[85%] rounded-xl border border-white/10 shadow-2xl overflow-hidden flex items-center justify-center bg-[#111] aspect-[1203/753]">
+                {project.image ? (
+                  <Image
+                    alt={project.title}
+                    loading="lazy"
+                    fill
+                    src={project.image}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 85vw, 50vw"
+                    className="w-full h-full object-cover object-top opacity-90 transition-all duration-[5000ms] ease-in-out md:group-hover:object-bottom group-hover:opacity-100"
+                  />
+                ) : (
+                  <span className="text-white/20 font-medium tracking-widest uppercase relative z-10">Image Coming Soon</span>
+                )}
 
                 {/* Image Overlay Gradient */}
                 <div className="absolute inset-0 bg-linear-to-t from-[#0a0a0a] via-transparent to-transparent opacity-80" />

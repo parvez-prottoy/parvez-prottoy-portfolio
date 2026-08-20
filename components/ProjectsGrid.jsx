@@ -21,11 +21,25 @@ export default function ProjectsGrid({ projects }) {
         return (
           <article
             key={project.title || index}
-            className="group relative overflow-hidden rounded-3xl border border-white/5 bg-[#0a0a0a] p-4 sm:p-5 shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-[#ea580c]/30 hover:shadow-[0_20px_40px_-15px_rgba(234,88,12,0.15)]"
-            style={{ animationDelay: `${index * 90}ms` }}
+            className="group relative overflow-hidden rounded-3xl border border-white/5 bg-[#0a0a0a] p-4 sm:p-5 shadow-2xl transition-all duration-500 hover:-translate-y-2"
+            style={{ 
+              animationDelay: `${index * 90}ms`,
+              '--card-color': project.shadowColor || '#ea580c',
+            }}
           >
+            {/* Hover Border & Shadow handler via CSS variables */}
+            <div 
+               className="absolute inset-0 rounded-3xl border border-transparent transition-all duration-500 group-hover:shadow-2xl pointer-events-none group-hover:border-[var(--card-color)]"
+               style={{ 
+                 boxShadow: `0 20px 40px -15px ${project.shadowColor ? project.shadowColor + '40' : 'rgba(234,88,12,0.25)'}` // '40' is hex for 25% opacity
+               }} 
+            />
+
             {/* Subtle Accent Glows */}
-            <div className="absolute right-0 top-0 h-48 w-48 rounded-full bg-[#ea580c]/5 blur-3xl transition-opacity duration-500 opacity-0 group-hover:opacity-100" />
+            <div 
+               className="absolute right-0 top-0 h-48 w-48 rounded-full blur-3xl transition-opacity duration-500 opacity-0 group-hover:opacity-100 pointer-events-none" 
+               style={{ backgroundColor: `${project.shadowColor || '#ea580c'}1A` }} // 1A is ~10% opacity
+            />
             <div className="absolute -bottom-16 -left-16 h-44 w-44 rounded-full bg-white/5 blur-3xl pointer-events-none" />
 
             <Link
@@ -38,10 +52,10 @@ export default function ProjectsGrid({ projects }) {
                   src={project.image || '/og-image.png'}
                   alt={project.title}
                   fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="object-cover object-top transition-all duration-[5000ms] ease-in-out md:group-hover:object-bottom"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-[#050403]/90 via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#050403]/90 via-transparent to-transparent opacity-80 pointer-events-none" />
 
                 {/* Project Type Badge */}
                 {project.type && (
@@ -71,7 +85,7 @@ export default function ProjectsGrid({ projects }) {
                 </div>
 
                 <div>
-                  <h2 className="text-2xl font-bold text-white transition-colors duration-300 group-hover:text-[#ea580c]">
+                  <h2 className="text-2xl font-bold text-white transition-colors duration-300 group-hover:text-[var(--card-color)]">
                     {project.title}
                   </h2>
                   <p className="mt-3 text-sm leading-relaxed text-white/60 line-clamp-2">
@@ -85,7 +99,7 @@ export default function ProjectsGrid({ projects }) {
                     {project.tags.slice(0, 4).map((tech) => (
                       <span
                         key={tech}
-                        className="rounded-lg border border-white/5 bg-white/5 px-2.5 py-1 text-xs font-medium text-white/70 transition-colors group-hover:border-white/10 group-hover:bg-white/10"
+                        className="rounded-lg border border-white/5 bg-white/5 px-2.5 py-1 text-xs font-medium text-white/70 transition-colors group-hover:border-[var(--card-color)] group-hover:bg-white/10"
                       >
                         {tech}
                       </span>
@@ -100,13 +114,13 @@ export default function ProjectsGrid({ projects }) {
 
                 {/* Action Area */}
                 <div className="mt-auto pt-8 flex items-center justify-between">
-                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-white transition-colors group-hover:text-[#ea580c]">
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-white transition-colors group-hover:text-[var(--card-color)]">
                     Read case study
                     <FiArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </span>
 
                   {(project.live_link || project.website) && (
-                    <span className="inline-flex size-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/60 transition-colors hover:bg-white/10 hover:text-white">
+                    <span className="inline-flex size-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/60 transition-colors hover:bg-white/10 hover:text-[var(--card-color)] hover:border-[var(--card-color)]">
                       <FiExternalLink className="size-4" />
                     </span>
                   )}

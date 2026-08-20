@@ -14,7 +14,7 @@ export default function ProjectSidebar({ project }) {
           />
           
           <div className="flex flex-col items-start lg:h-125">
-            {/* Title & Github */}
+            {/* Title */}
             <motion.div
               className="flex items-center gap-4"
               key={project?.title}
@@ -25,16 +25,6 @@ export default function ProjectSidebar({ project }) {
               <h3 className="text-white text-3xl font-bold tracking-tight">
                 {project?.title || 'Project Title'}
               </h3>
-              {project?.github && (
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="translate-y-px cursor-pointer rounded-full p-2 bg-white/5 border border-white/10 text-white/60 hover:text-[#ea580c] hover:border-[#ea580c]/30 hover:bg-[#ea580c]/10 transition-all duration-300"
-                  href={project?.github}
-                >
-                  <FaGithub className="size-5" />
-                </a>
-              )}
             </motion.div>
 
             {/* Project Type */}
@@ -92,7 +82,7 @@ export default function ProjectSidebar({ project }) {
 
             {/* Tech icons */}
             <motion.div
-              className="mt-10 flex flex-wrap gap-3"
+              className="mt-8 flex flex-wrap gap-3"
               key={`tech-${project?.title}`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -101,6 +91,75 @@ export default function ProjectSidebar({ project }) {
               {project?.techIcons?.map((tech, idx) => (
                 <TechIcon key={idx} tech={tech} />
               ))}
+            </motion.div>
+
+            {/* Links */}
+            <motion.div
+              className="mt-8 flex flex-wrap gap-3"
+              key={`links-${project?.title}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.6 }}
+            >
+              {(project?.live_link || project?.website) && (
+                <a
+                  href={project.live_link || project.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 border bg-[#ea580c]/10 text-[#ea580c] border-[#ea580c]/30 hover:bg-[#ea580c] hover:text-white hover:border-[#ea580c]"
+                >
+                  Visit Live
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </a>
+              )}
+              
+              {(project?.github || project?.client_link || project?.server_link) && (
+                <div className="flex gap-2">
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 border bg-white/5 border-white/10 text-white/70 hover:bg-white/10 hover:text-white"
+                    >
+                      <FaGithub className="size-4" /> Github
+                    </a>
+                  )}
+                  {project.client_link && (
+                    <a
+                      href={project.client_link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 border bg-white/5 border-white/10 text-white/70 hover:bg-white/10 hover:text-white"
+                    >
+                      <FaGithub className="size-4" /> Client
+                    </a>
+                  )}
+                  {project.server_link && (
+                    <a
+                      href={project.server_link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 border bg-white/5 border-white/10 text-white/70 hover:bg-white/10 hover:text-white"
+                    >
+                      <FaGithub className="size-4" /> Server
+                    </a>
+                  )}
+                </div>
+              )}
             </motion.div>
           </div>
         </div>

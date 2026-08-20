@@ -1,171 +1,459 @@
-import diteck from '../app/assets/projects/diteck.webp';
-import tasty from '../app/assets/projects/tasty.webp';
-import retrievex from '../app/assets/projects/retrievex.webp';
+import careerFlowImg from '@/assets/projects/career-flow.png';
+import zealCommercialImg from '@/assets/projects/Zeal-commercial.jpg';
+import deepScienceVenturesImg from '@/assets/projects/deep-science-ventures.jpg';
+import sliceoficelandImg from '@/assets/projects/sliceoficeland.jpg';
+import blitzImg from '@/assets/projects/blitz.jpg';
+import stellosPropertiesImg from '@/assets/projects/stellos-properties.jpg';
+import edumentImg from '@/assets/projects/edument.jpg';
+import signs89Img from '@/assets/projects/89signs.jpg';
+import shiptrekImg from '@/assets/projects/shiptrek.jpg';
+import jobFinderReactApplicationImg from '@/assets/projects/job-finder.png';
+import videoGalleryReactApplicationImg from '@/assets/projects/video-gallery.jpg';
+import booksFinderImg from '@/assets/projects/books-finder.jpg';
 
-const assets = {
+export const assets = {
   projects: {
-    diteck,
-    tasty,
-    retrievex,
+    careerFlow: careerFlowImg,
+    zealCommercial: zealCommercialImg,
+    deepScienceVentures: deepScienceVenturesImg,
+    sliceoficeland: sliceoficelandImg,
+    blitz: blitzImg,
+    stellosProperties: stellosPropertiesImg,
+    edument: edumentImg,
+    "89signs": signs89Img,
+    shiptrek: shiptrekImg,
+    jobFinderReactApplication: jobFinderReactApplicationImg,
+    videoGalleryReactApplication: videoGalleryReactApplicationImg,
+    booksFinder: booksFinderImg,
   },
 };
 
 export const projects = [
   {
-    title: 'Diteck Technology',
-    description:
-      'A full-stack agency platform with AI-powered features, secure job application flow, and role-based dashboards for Admin and Users.',
-    mobileDescription:
-      'Agency platform with job posting, AI chatbot, and secure application system.',
-    website: 'https://diteck.vercel.app/', // update if needed
-    github: '', // update with real repo
-    image: assets.projects.diteck, // update if image asset differs
-    gradient:
-      'linear-gradient(188.62deg, #1F2937 49.9%, #2563EB 81.7%, #3B82F6 93.88%, #93C5FD 113.5%)',
-    shadowColor: '#2563EB',
-    textColor: 'text-blue-300',
-    tagColor: 'fill-blue-600 text-blue-400 bg-blue-600/20',
-    tags: ['Next.js', 'Tailwind', 'Node.js', 'MongoDB', 'AWS S3'],
-    type: 'Team project',
-    server_link: 'https://github.com/naimur-reza/diteck-server',
-    client_link: 'https://github.com/naimur-reza/diteck-frontend',
-    live_link: 'https://diteck.vercel.app/',
-    features: [
-      'Role-based dashboards for Admin and Users',
-      'Secure job application system with email verification (OTP)',
-      'AI chatbot for answering queries.',
-      'User management and team collaboration tools',
-      'Blog and service section management',
-      'Image uploads integrated with AWS S3',
-    ],
-    techIcons: ['next', 'nodejs', 'tailwind', 'mongodb', 'aws'],
-  },
-  {
-    title: 'Tasty Drop',
-    description:
-      'A full-stack food delivery platform with multiple payment methods and role-based dashboards for Admin, Rider, and Partner roles.',
-    mobileDescription:
-      'Food delivery platform with multiple payment methods and role-based dashboards.',
-    website: 'https://tasty-drops.web.app/',
-    github: 'https://github.com/BakiAbdullah/Tasty-drop-client',
-    image: assets.projects.tasty,
-    gradient:
-      'linear-gradient(188.62deg, #6B0D33 49.9%, #DB2777 81.7%, #F472B6 93.88%, #F9D793 113.5%)',
-    shadowColor: '#DB2777',
-    textColor: 'text-pink-300',
-    tagColor: 'fill-pink-600 text-pink-400 bg-pink-600/20',
-    tags: ['React', 'Express', 'Tailwind', 'MongoDB', 'Redux'],
-    type: 'Team project',
-    server_link: 'https://github.com/ImranSarkerWeb/tasty-drop-server',
-    client_link: 'https://github.com/BakiAbdullah/Tasty-drop-client',
-    live_link: 'https://tasty-drops.web.app/',
-    features: [
-      'Multiple payment methods integration',
-      'Role-based dashboards (Admin, Rider, Partner)',
-      'Subscription service implementation',
-      'Real-time order tracking',
-      'User authentication and authorization',
-    ],
-    techIcons: ['react', 'express', 'tailwind', 'mongodb', 'redux'],
-  },
-  {
-    title: 'RetrieveX',
-    description:
-      'A community-driven platform for reporting and reclaiming lost items with user accounts, detailed reports, ownership verification, and an admin dashboard.',
-    mobileDescription:
-      'A community platform for reporting and reclaiming lost items with dark/light mode.',
-    website: 'https://lost-and-found-live-swart.vercel.app/',
-    github: 'https://github.com/naimur-reza/Lost-And-Found-Frontend',
-    image: assets.projects.diteck,
-    gradient:
-      'linear-gradient(188.62deg, #070E57 49.9%, #2932CB 81.7%, #7980FF 93.88%, #F9D793 113.5%)',
-    shadowColor: '#2932CB',
-    textColor: 'text-blue-300',
-    tagColor: 'fill-blue-600 text-blue-400 bg-blue-600/20',
+    title: "CareerFlow",
+    description: "A full-stack job application tracking platform that helps users manage applications, track their progress, organize interviews, and monitor their job search from one dashboard.",
+    mobileDescription: "Job application tracker with drag-and-drop workflow, interviews, and secure authentication.",
+    website: "https://job-application-tracker-next-js.vercel.app/",
+    github: "",
+    image: assets.projects.careerFlow,
+    gradient: "linear-gradient(188.62deg, #0F172A 49.9%, #2563EB 81.7%, #3B82F6 93.88%, #93C5FD 113.5%)",
+    shadowColor: "#2563EB",
+    textColor: "text-blue-300",
+    tagColor: "fill-blue-600 text-blue-400 bg-blue-600/20",
     tags: [
-      'React',
-      'Prisma',
-      'Tailwind',
-      'PostgreSQL',
-      'Supabase',
-      'Redux',
-      'TypeScript',
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "dnd-kit",
+      "MongoDB",
+      "Mongoose",
+      "Better Auth"
     ],
-    type: 'Personal project',
-    server_link: 'https://github.com/naimur-reza/Lost-And-Found-Server',
-    client_link: 'https://github.com/naimur-reza/Lost-And-Found-Frontend',
-    live_link: 'https://lost-and-found-live-swart.vercel.app/',
+    type: "Full-stack project",
+    server_link: "",
+    client_link: "",
+    live_link: "https://job-application-tracker-next-js.vercel.app/",
     features: [
-      'User authentication and profiles',
-      'Lost item reporting and searching',
-      'Ownership verification system',
-      'Admin dashboard for moderation',
-      'Dark/light mode toggle',
+      "User registration and login",
+      "Google and GitHub authentication",
+      "User-specific dashboard",
+      "Create, edit, and delete job applications",
+      "Drag-and-drop application status management",
+      "Real-time application summary",
+      "Schedule, edit, and delete interviews",
+      "Upcoming interviews and dashboard integration",
+      "Update name, email, and password from Settings",
+      "AI Tools, Documents, and Analytics pages marked as Work in Progress"
     ],
     techIcons: [
-      'react',
-      'prisma',
-      'tailwind',
-      'postgresql',
-      'supabase',
-      'redux',
-      'typescript',
-    ],
+      "next",
+      "typescript",
+      "tailwind",
+      "shadcn",
+      "dndkit",
+      "mongodb",
+      "mongoose",
+      "betterauth"
+    ]
   },
   {
-    title: 'VanishVote',
-    description:
-      'A minimalist poll creation platform allowing users to make anonymous, timed polls with no login required. Built for quick decisions and ephemeral feedback.',
-    mobileDescription:
-      'Create anonymous polls that disappear after a set time. No login needed.',
-    website: 'https://vanish-vote-client-kohl.vercel.app/',
-    github:
-      'https://github.com/naimur-reza?tab=repositories&q=vanish&type=&language=&sort=',
-    image: assets.projects.retrievex,
-    gradient: 'linear-gradient(180deg, #0F2027 0%, #203A43 50%, #2C5364 100%)',
-    shadowColor: '#203A43',
-    textColor: 'text-cyan-300',
-    tagColor: 'fill-cyan-600 text-cyan-400 bg-cyan-600/20',
-    tags: ['Next.js', 'MongoDB', 'Express.js', 'Node.js', 'Tailwind CSS'],
-    type: 'Personal project',
-    server_link: 'https://github.com/naimur-reza/vanish-note-server',
-    client_link: 'https://github.com/naimur-reza/vanish-note-client',
-    live_link: 'https://vanish-vote-client-kohl.vercel.app/',
-    features: [
-      'Create anonymous polls without login',
-      'Unique shareable links for each poll',
-      'Timed expiry: 1h, 12h, or 24h',
-      'Real-time results or hide until poll ends',
-      'Dark/light mode toggle',
+    title: "Zeal Commercial",
+    description: "A CMS-driven commercial real estate platform built with Webflow, featuring advanced property search, AI-powered investment summaries, and seamless lead management.",
+    mobileDescription: "A CMS-driven commercial real estate platform built with Webflow, featuring advanced property search, AI-powered investment summaries, and seamless lead management.",
+    website: "https://zeal-commercial.webflow.io",
+    github: "",
+    image: assets.projects.zealCommercial,
+    gradient: "linear-gradient(188.62deg, #111827 49.9%, #0F766E 81.7%, #14B8A6 93.88%, #99F6E4 113.5%)",
+    shadowColor: "#14B8A6",
+    textColor: "text-teal-300",
+    tagColor: "fill-teal-600 text-teal-400 bg-teal-600/20",
+    tags: [
+      "Webflow",
+      "JavaScript",
+      "CMS",
+      "Finsweet",
+      "GoHighLevel",
+      "Chatbase Ai",
+      "OpenAI"
     ],
-    techIcons: ['nextjs', 'mongodb', 'express', 'nodejs', 'tailwind'],
+    type: "Webflow Development",
+    server_link: "",
+    client_link: "",
+    live_link: "https://zeal-commercial.webflow.io",
+    features: [
+      "Advanced Property Search",
+      "Dynamic CMS",
+      "AI Investment Summary",
+      "Multi-Language Support",
+      "GoHighLevel Integration",
+      "Property Filters"
+    ],
+    techIcons: [
+      "webflow",
+      "javascript",
+      "cms",
+      "finsweet",
+      "gohighlevel",
+      "chatbase",
+      "openai"
+    ]
   },
   {
-    title: 'Camp Sun Shine',
-    description:
-      'Educational platform with role-based dashboards for Instructor, Student, and Admin, featuring payment integration via Stripe for course enrollment.',
-    mobileDescription:
-      'Educational platform with role-based dashboards and payment integration.',
-    website: 'https://campsunshine-c653c.web.app/',
-    github: 'https://github.com/naimur-reza/Campsunshine-Client',
-    image: assets.projects.tasty,
-    gradient:
-      'linear-gradient(188.62deg, #083926 49.9%, #059669 81.7%, #34D399 93.88%, #F9D793 113.5%)',
-    shadowColor: '#059669',
-    textColor: 'text-emerald-300',
-    tagColor: 'fill-emerald-600 text-emerald-400 bg-emerald-600/20',
-    tags: ['React', 'Express', 'Tailwind', 'MongoDB'],
-    type: 'Personal project',
-    server_link: 'https://github.com/naimur-reza/Campsunshine-Server',
-    client_link: 'https://github.com/naimur-reza/Campsunshine-Client',
-    live_link: 'https://campsunshine-c653c.web.app/',
-    features: [
-      'Role-based dashboards (Instructor, Student, Admin)',
-      'Course search and enrollment',
-      'Stripe payment integration',
-      'User authentication and profiles',
-      'Course management system',
+    title: "Deep Science Ventures",
+    description: "A large-scale Figma to Webflow project with dynamic CMS architecture, search, filtering, sorting, and responsive layouts.",
+    mobileDescription: "A large-scale Figma to Webflow project with dynamic CMS architecture, search, filtering, sorting, and responsive layouts.",
+    website: "https://deep-science-ventures-hmg.webflow.io/",
+    github: "",
+    image: assets.projects.deepScienceVentures,
+    gradient: "linear-gradient(188.62deg, #1E1B4B 49.9%, #6D28D9 81.7%, #8B5CF6 93.88%, #DDD6FE 113.5%)",
+    shadowColor: "#8B5CF6",
+    textColor: "text-violet-300",
+    tagColor: "fill-violet-600 text-violet-400 bg-violet-600/20",
+    tags: [
+      "Webflow",
+      "JavaScript",
+      "CMS"
     ],
-    techIcons: ['react', 'express', 'tailwind', 'mongodb'],
+    type: "Figma to Webflow",
+    server_link: "",
+    client_link: "",
+    live_link: "https://deep-science-ventures-hmg.webflow.io/",
+    features: [
+      "Figma to Webflow",
+      "Dynamic Pages",
+      "Search System",
+      "Filter and Sort",
+      "CMS Blog System",
+      "Responsive Layout"
+    ],
+    techIcons: [
+      "webflow",
+      "javascript",
+      "cms"
+    ]
   },
+  {
+    title: "Sliceoficeland",
+    description: "A content driven website with advanced search, category filtering, and dynamic CMS pages.",
+    mobileDescription: "A content driven website with advanced search, category filtering, and dynamic CMS pages.",
+    website: "https://sliceoficeland.is/",
+    github: "",
+    image: assets.projects.sliceoficeland,
+    gradient: "linear-gradient(188.62deg, #1C1917 49.9%, #C2410C 81.7%, #F97316 93.88%, #FED7AA 113.5%)",
+    shadowColor: "#F97316",
+    textColor: "text-orange-300",
+    tagColor: "fill-orange-600 text-orange-400 bg-orange-600/20",
+    tags: [
+      "Webflow",
+      "JavaScript",
+      "CMS"
+    ],
+    type: "Webflow Development",
+    server_link: "",
+    client_link: "",
+    live_link: "https://sliceoficeland.is/",
+    features: [
+      "Advanced Search",
+      "Category Filters",
+      "Dynamic CMS Pages",
+      "Blog System",
+      "Responsive Design"
+    ],
+    techIcons: [
+      "webflow",
+      "javascript",
+      "cms"
+    ]
+  },
+  {
+    title: "Blitz",
+    description: "A 13+ page website developed from Figma with responsive layouts and scalable CMS architecture.",
+    mobileDescription: "A 13+ page website developed from Figma with responsive layouts and scalable CMS architecture.",
+    website: "https://blitz-on.webflow.io/",
+    github: "",
+    image: assets.projects.blitz,
+    gradient: "linear-gradient(188.62deg, #052E16 49.9%, #15803D 81.7%, #22C55E 93.88%, #BBF7D0 113.5%)",
+    shadowColor: "#22C55E",
+    textColor: "text-green-300",
+    tagColor: "fill-green-600 text-green-400 bg-green-600/20",
+    tags: [
+      "Webflow",
+      "CMS",
+      "HTML",
+      "CSS"
+    ],
+    type: "Figma to Webflow",
+    server_link: "",
+    client_link: "",
+    live_link: "https://blitz-on.webflow.io/",
+    features: [
+      "13+ Pages",
+      "Figma to Webflow",
+      "CMS Integration",
+      "Responsive Design",
+      "Multi-page Structure"
+    ],
+    techIcons: [
+      "webflow",
+      "cms",
+      "html",
+      "css"
+    ]
+  },
+  {
+    title: "Stellos Properties",
+    description: "A premium real estate website built with a focus on user experience and responsive layouts.",
+    mobileDescription: "A premium real estate website built with a focus on user experience and responsive layouts.",
+    website: "https://www.stellosproperties.com/",
+    github: "",
+    image: assets.projects.stellosProperties,
+    gradient: "linear-gradient(188.62deg, #3F0D24 49.9%, #BE185D 81.7%, #EC4899 93.88%, #FBCFE8 113.5%)",
+    shadowColor: "#EC4899",
+    textColor: "text-pink-300",
+    tagColor: "fill-pink-600 text-pink-400 bg-pink-600/20",
+    tags: [
+      "Webflow",
+      "HTML",
+      "CSS"
+    ],
+    type: "Webflow Development",
+    server_link: "",
+    client_link: "",
+    live_link: "https://www.stellosproperties.com/",
+    features: [
+      "Real Estate Listings",
+      "Responsive Design",
+      "Premium UI",
+      "Property Showcase",
+      "Multi-page Structure"
+    ],
+    techIcons: [
+      "webflow",
+      "html",
+      "css"
+    ]
+  },
+  {
+    title: "Edument",
+    description: "A multi-page educational website with CMS-powered blogs and responsive design.",
+    mobileDescription: "A multi-page educational website with CMS-powered blogs and responsive design.",
+    website: "https://www.edument.se/kontakt",
+    github: "",
+    image: assets.projects.edument,
+    gradient: "linear-gradient(188.62deg, #450A0A 49.9%, #B91C1C 81.7%, #EF4444 93.88%, #FECACA 113.5%)",
+    shadowColor: "#EF4444",
+    textColor: "text-red-300",
+    tagColor: "fill-red-600 text-red-400 bg-red-600/20",
+    tags: [
+      "Webflow",
+      "CMS"
+    ],
+    type: "Webflow Development",
+    server_link: "",
+    client_link: "",
+    live_link: "https://www.edument.se/kontakt",
+    features: [
+      "Multi-page Website",
+      "CMS Blog System",
+      "Contact Form",
+      "Responsive Design",
+      "Dynamic Content Management"
+    ],
+    techIcons: [
+      "webflow",
+      "cms"
+    ]
+  },
+  {
+    title: "89signs",
+    description: "A modern business website built to showcase branding and services with a clean user experience.",
+    mobileDescription: "A modern business website built to showcase branding and services with a clean user experience.",
+    website: "https://www.89signs.co.za/",
+    github: "",
+    image: assets.projects["89signs"],
+    gradient: "linear-gradient(188.62deg, #172554 49.9%, #4338CA 81.7%, #6366F1 93.88%, #C7D2FE 113.5%)",
+    shadowColor: "#6366F1",
+    textColor: "text-indigo-300",
+    tagColor: "fill-indigo-600 text-indigo-400 bg-indigo-600/20",
+    tags: [
+      "Webflow",
+      "HTML",
+      "CSS"
+    ],
+    type: "Webflow Development",
+    server_link: "",
+    client_link: "",
+    live_link: "https://www.89signs.co.za/",
+    features: [
+      "Multi-page Structure",
+      "Service Showcase",
+      "Responsive Design",
+      "Clean Navigation",
+      "Brand-focused Layout"
+    ],
+    techIcons: [
+      "webflow",
+      "html",
+      "css"
+    ]
+  },
+  {
+    title: "Shiptrek",
+    description: "A modern logistics landing page featuring a custom JavaScript-powered cost calculator and responsive design.",
+    mobileDescription: "A modern logistics landing page featuring a custom JavaScript-powered cost calculator and responsive design.",
+    website: "https://shiptrek.webflow.io/",
+    github: "",
+    image: assets.projects.shiptrek,
+    gradient: "linear-gradient(188.62deg, #083344 49.9%, #0891B2 81.7%, #06B6D4 93.88%, #A5F3FC 113.5%)",
+    shadowColor: "#06B6D4",
+    textColor: "text-cyan-300",
+    tagColor: "fill-cyan-600 text-cyan-400 bg-cyan-600/20",
+    tags: [
+      "Webflow",
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    type: "Figma to Webflow",
+    server_link: "",
+    client_link: "",
+    live_link: "https://shiptrek.webflow.io/",
+    features: [
+      "Custom Cost Calculator",
+      "JavaScript Integrations",
+      "Responsive Design",
+      "High-Converting Landing Page",
+      "Figma to Webflow"
+    ],
+    techIcons: [
+      "webflow",
+      "javascript",
+      "html",
+      "css"
+    ]
+  },
+  {
+    title: "Job Finder React Application",
+    description: "A MERN job management platform with search, filtering, sorting, and CRUD functionality built using React and Express.js.",
+    mobileDescription: "A MERN job management platform with search, filtering, sorting, and CRUD functionality built using React and Express.js.",
+    website: "https://crud-job-finder-application.netlify.app/",
+    github: "",
+    image: assets.projects.jobFinderReactApplication,
+    gradient: "linear-gradient(188.62deg, #422006 49.9%, #B45309 81.7%, #F59E0B 93.88%, #FDE68A 113.5%)",
+    shadowColor: "#F59E0B",
+    textColor: "text-amber-300",
+    tagColor: "fill-amber-600 text-amber-400 bg-amber-600/20",
+    tags: [
+      "React",
+      "Redux Toolkit",
+      "Express.js",
+      "MongoDB",
+      "REST API"
+    ],
+    type: "MERN Stack Development",
+    server_link: "",
+    client_link: "",
+    live_link: "https://crud-job-finder-application.netlify.app/",
+    features: [
+      "CRUD Operations",
+      "Category Filters",
+      "Remote Jobs",
+      "Internship Listings",
+      "Job Search",
+      "Salary Sorting"
+    ],
+    techIcons: [
+      "react",
+      "reduxtoolkit",
+      "expressjs",
+      "mongodb",
+      "restapi"
+    ]
+  },
+  {
+    title: "Video Gallery React Application",
+    description: "A React and Express.js powered video gallery application with CRUD functionality and dynamic related video suggestions.",
+    mobileDescription: "A React and Express.js powered video gallery application with CRUD functionality and dynamic related video suggestions.",
+    website: "https://video-gallery-application.netlify.app/",
+    github: "",
+    image: assets.projects.videoGalleryReactApplication,
+    gradient: "linear-gradient(188.62deg, #1F2937 49.9%, #4B5563 81.7%, #9CA3AF 93.88%, #E5E7EB 113.5%)",
+    shadowColor: "#9CA3AF",
+    textColor: "text-gray-300",
+    tagColor: "fill-gray-600 text-gray-400 bg-gray-600/20",
+    tags: [
+      "React",
+      "Express.js",
+      "REST API"
+    ],
+    type: "React Development",
+    server_link: "",
+    client_link: "",
+    live_link: "https://video-gallery-application.netlify.app/",
+    features: [
+      "Add Videos",
+      "Edit Videos",
+      "Delete Videos",
+      "Related Videos",
+      "Dynamic Content"
+    ],
+    techIcons: [
+      "react",
+      "expressjs",
+      "restapi"
+    ]
+  },
+  {
+    title: "Books Finder",
+    description: "A React-based book discovery application featuring real-time search, sorting, and favorite management.",
+    mobileDescription: "A React-based book discovery application featuring real-time search, sorting, and favorite management.",
+    website: "https://react-books-finder.vercel.app/",
+    github: "",
+    image: assets.projects.booksFinder,
+    gradient: "linear-gradient(188.62deg, #2E1065 49.9%, #7E22CE 81.7%, #A855F7 93.88%, #E9D5FF 113.5%)",
+    shadowColor: "#A855F7",
+    textColor: "text-purple-300",
+    tagColor: "fill-purple-600 text-purple-400 bg-purple-600/20",
+    tags: [
+      "React",
+      "JavaScript",
+      "CSS"
+    ],
+    type: "React Development",
+    server_link: "",
+    client_link: "",
+    live_link: "https://react-books-finder.vercel.app/",
+    features: [
+      "Real-Time Search",
+      "Price Sorting",
+      "Favorites System",
+      "State Management"
+    ],
+    techIcons: [
+      "react",
+      "javascript",
+      "css"
+    ]
+  }
 ];
